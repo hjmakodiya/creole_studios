@@ -1,5 +1,9 @@
 var router = express.Router()
 
+router.get('/', function (req, res) {
+    res.end("It is index file")
+})
+
 router.get('/userDetail', function (req, res) {
     let id = req.body.id
 
