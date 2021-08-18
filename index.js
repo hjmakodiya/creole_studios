@@ -1,8 +1,11 @@
 //For basic CRUD application we need following modules
+global.express = require('express');
 global.bodyParser = require('body-parser');
 global.mysql = require('mysql');
-const port = 5000;
+const app = express();
 
+const port = 5000;
+    
 global.db = require('./include/connection');
 const router = require('./include/routes');
 
@@ -11,6 +14,8 @@ app.use(bodyParser.json());
 
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set('view engine', 'ejs'); 
 
 app.use('/', router);
 
